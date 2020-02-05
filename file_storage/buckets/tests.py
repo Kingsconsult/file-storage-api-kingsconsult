@@ -26,7 +26,11 @@ class VIewTestCase(TestCase):
         self.response = self.client.post(views.BucketList(), self.bucket_data, format="json")
     
     
-    def test_stuff_view_get_all(self):
+    def test_view_all_buckets(self):
         response = self.client.get('/buckets/')
         self.assertEqual(response.status_code, 200)
+        
+    def test_create_bucket(self):
+        response = self.client.post('/bucket/', {'name': 'kings'}, format='json')
+        self.assertEqual(response.status_code, 201)
         
