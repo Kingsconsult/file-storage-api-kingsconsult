@@ -11,7 +11,6 @@ from django.http import Http404
 from .models import Bucket
 from . import models
 from .serializers import BucketSerializer
-# from . import serializers
 
 class BucketList(APIView):
     def get(self, request, format=None):
@@ -28,4 +27,8 @@ class CreateBucket(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    
+class BucketDetail(APIView):
+    def get(self, request, pk):
+        bucket = get_object_or_404(Bucket, pk=pk)
+        data = BucketSerializer(bucket).data
+        return Response(data)
