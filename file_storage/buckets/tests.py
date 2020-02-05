@@ -15,3 +15,4 @@ class ModelTestCase(TestCase):
         self.bucket.save()
         new_bucket_count = Bucket.objects.count()
         self.assertNotEqual(old_bucket_count, new_bucket_count)
+        
