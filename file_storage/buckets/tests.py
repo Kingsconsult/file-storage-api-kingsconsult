@@ -3,6 +3,8 @@ from .models import Bucket
 from . import views
 from rest_framework import status
 from rest_framework.test import APIClient
+from django.urls import reverse
+from . import dummydb
 
 
 
@@ -33,4 +35,16 @@ class VIewTestCase(TestCase):
     def test_create_bucket(self):
         response = self.client.post('/bucket/', {'name': 'kings'}, format='json')
         self.assertEqual(response.status_code, 201)
+        
+class ViewTestCaseWithPK(TestCase):
+    client = APIClient()
+
+    def setUp(self):
+        Bucket.objects.create(**dummydb.bucket_data())
+        
+    
+    def test_view_bucket_detail(self):      
+        response = self.client.get('/bucket/1/')
+        self.assertEqual(response.status_code, 200)
+        
         
