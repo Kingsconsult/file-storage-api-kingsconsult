@@ -3,7 +3,6 @@ from .models import Bucket
 from . import views
 
 
-
 # Create your tests here.
 
 class ModelTestCase(TestCase):
