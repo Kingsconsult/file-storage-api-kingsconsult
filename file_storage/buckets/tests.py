@@ -6,8 +6,6 @@ from rest_framework.test import APIClient
 from django.urls import reverse
 from . import dummydb
 
-
-
 # Create your tests here.
 
 class ModelTestCase(TestCase):
