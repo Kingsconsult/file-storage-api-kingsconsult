@@ -93,6 +93,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'file-storage',
+        'HOST': 'db:27017',
+        'USERNAME': 'kingsconsult',
+        'PASSWORD': 'kings042',
     }
 }
 
