@@ -6,7 +6,7 @@ jobs:
       - image: circleci/python:3.7
       - image: circleci/mongo:latest
         environment:
-          environment:
+          # environment:
           MONGODB_USERNAME: "admin"
           MONGODB_PASSWORD: "admin"
           
