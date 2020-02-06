@@ -5,8 +5,6 @@ from django.shortcuts import get_object_or_404
 from rest_framework import status
 from django.http import Http404
 
-
-
 # Create your views here.
 from .models import Bucket
 from . import models
