@@ -21,10 +21,9 @@ class DB:
     def development(cls):
         return {
             'default': {
-                'ENGINE': 'mongo',
+                'ENGINE': 'djongo',
                 'NAME': 'file-storage',
-                'HOST': 'db',
-                'USER': config('DBUSER'),
-                'PASSWORD': config('DBPASSWD'),
+                'HOST': 'db:27017',
             }
         }
+
