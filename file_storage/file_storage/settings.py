@@ -106,7 +106,7 @@ if DEBUG == True:
         'default': {
             'ENGINE': 'djongo',
             'NAME': 'file-storage',
-            'HOST': 'db:27017',
+            'HOST': '27017:27017',
             'USERNAME': 'kings',
             'PASSWORD': 'kings042',
             
