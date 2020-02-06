@@ -1,8 +1,11 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/project
     docker:
       - image: circleci/python:3.7
+      - image: circleci/mongo:latest
+          
     steps:
       - checkout
       - restore_cache:
@@ -20,7 +23,11 @@ jobs:
           name: Running tests
           command: |
             . venv/bin/activate
-            python3 manage.py test
+            cd file_storage
+            python manage.py test
       - store_artifacts:
           path: test-reports/
           destination: python_app
+        
+        - store_test_results:
+          path: test-results

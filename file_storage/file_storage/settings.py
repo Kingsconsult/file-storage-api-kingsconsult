@@ -26,7 +26,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '4cpiysxfv4xs%$2i#9%-%9oczx9pxbkrj!m4mbr6m93kuiy(bl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=True, cast=bool)
+
 
 ALLOWED_HOSTS = []
 
@@ -100,8 +101,26 @@ WSGI_APPLICATION = 'file_storage.wsgi.application'
 #     }
 # }
 
-DATABASES = DB.config(DEBUG)
-
+if DEBUG == True:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'djongo',
+            'NAME': 'file-storage',
+            'HOST': 'db:27017',
+            'USERNAME': 'kings',
+            'PASSWORD': 'kings042',
+            
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            **dj_database_url.parse(config("DATABASE_URL", cast=str, default={}), conn_max_age=600),
+            'ENGINE': 'django.db.backends.djongo'
+        }
+    }
+    
+    
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 

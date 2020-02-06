@@ -5,10 +5,6 @@ jobs:
     docker:
       - image: circleci/python:3.7
       - image: circleci/mongo:latest
-        environment:
-          # environment:
-          MONGODB_USERNAME: "admin"
-          MONGODB_PASSWORD: "admin"
           
     steps:
       - checkout
@@ -28,7 +24,10 @@ jobs:
           command: |
             . venv/bin/activate
             cd file_storage
+            python manage.py test
       - store_artifacts:
           path: test-reports/
           destination: python_app
         
+        - store_test_results:
+          path: test-results
