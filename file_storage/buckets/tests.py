@@ -1,11 +1,12 @@
 from django.test import TestCase
-from .models import Bucket
-# from . import views
+# from .models import Bucket
+import views
+import models
 
 from rest_framework import status
 from rest_framework.test import APIClient
 from django.urls import reverse
-from . import dummydb
+import dummydb
 
 
 
@@ -14,19 +15,19 @@ from . import dummydb
 class ModelTestCase(TestCase):
     def setUp(self):
         self.bucket_name = "KK_bucket"
-        self.bucket = Bucket(name=self.bucket_name)
+        self.bucket = models.Bucket(name=self.bucket_name)
         
     def test_to_create_bucket(self):
-        old_bucket_count = Bucket.objects.count()
+        old_bucket_count = models.Bucket.objects.count()
         self.bucket.save()
-        new_bucket_count = Bucket.objects.count()
+        new_bucket_count = models.Bucket.objects.count()
         self.assertNotEqual(old_bucket_count, new_bucket_count)
         
 class VIewTestCase(TestCase):
     def setUp(self):
         self.client = APIClient()
-        self.bucket_data = {'name': 'kk_bucket'}
-        self.response = self.client.post(views.BucketList(), self.bucket_data, format="json")
+        bucket_data = {'name': 'kk_bucket'}
+        self.response = self.client.post(views.BucketList(), bucket_data, format="json")
     
     
     def test_view_all_buckets(self):
@@ -41,7 +42,7 @@ class ViewTestCaseWithPK(TestCase):
     client = APIClient()
 
     def setUp(self):
-        Bucket.objects.create(**dummydb.bucket_data())
+        models.Bucket.objects.create(**dummydb.bucket_data())
     
     def test_view_bucket_detail(self):      
         response = self.client.get('/bucket/1/')
@@ -52,7 +53,7 @@ class ViewUpdateTest(TestCase):
     client = APIClient()
 
     def setUp(self):
-        Bucket.objects.create(**dummydb.bucket_data())
+        models.Bucket.objects.create(**dummydb.bucket_data())
     
     # def test_update_bucket(self):
     #     response = self.client.get('/buckets/')
