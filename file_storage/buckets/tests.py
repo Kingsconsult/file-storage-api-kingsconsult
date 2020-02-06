@@ -56,12 +56,15 @@ class ViewUpdateTest(TestCase):
     def test_update_bucket(self):
         response = self.client.get('/buckets/')
         data = response.json()
-        data[0]['id'] = 12
+        data[0]['id'] = 1
         data[0]['name'] = "new name"
         data[0]['created_at'] = "2020-02-05T22:58:25.274000Z"
         replace = self.client.put('/bucket/1/', data=data[0],  format='json')
         self.assertEqual(replace.status_code, 200)
         
+    def test_delete(self):
+        response = self.client.delete('/bucket/1/')
+        self.assertEqual(response.status_code, 204)
         
         
         
