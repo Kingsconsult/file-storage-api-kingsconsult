@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'buckets',
+    'buckets.apps.BucketsConfig',
     'rest_framework',
 ]
 
@@ -93,6 +93,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'file-storage',
+        'HOST': 'db:27017',
     }
 }
 
