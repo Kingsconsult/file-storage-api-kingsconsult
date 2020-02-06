@@ -28,7 +28,6 @@ jobs:
           command: |
             . venv/bin/activate
             cd file_storage
-            python manage.py test
       - store_artifacts:
           path: test-reports/
           destination: python_app
