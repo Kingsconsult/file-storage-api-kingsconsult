@@ -1,11 +1,11 @@
 from django.test import TestCase
-from .models import Bucket
+from buckets.models import Bucket
 # from . import views
 
 from rest_framework import status
 from rest_framework.test import APIClient
 from django.urls import reverse
-from . import dummydb
+from buckets import dummydb
 
 
 
