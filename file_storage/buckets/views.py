@@ -32,3 +32,17 @@ class BucketDetail(APIView):
         bucket = get_object_or_404(Bucket, pk=pk)
         data = BucketSerializer(bucket).data
         return Response(data)
+    
+    def get_object(self, pk):
+        try:
+            return Bucket.objects.get(pk=pk)
+        except Bucket.DoesNotExist:
+            raise Http404
+        
+    def put(self, request, pk, format="json"):
+        Bucket = self.get_object(pk)
+        serializer = BucketSerializer(Bucket, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

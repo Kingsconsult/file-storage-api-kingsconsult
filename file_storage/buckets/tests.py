@@ -41,10 +41,27 @@ class ViewTestCaseWithPK(TestCase):
 
     def setUp(self):
         Bucket.objects.create(**dummydb.bucket_data())
-        
     
     def test_view_bucket_detail(self):      
         response = self.client.get('/bucket/1/')
         self.assertEqual(response.status_code, 200)
+
+
+class ViewUpdateTest(TestCase):
+    client = APIClient()
+
+    def setUp(self):
+        Bucket.objects.create(**dummydb.bucket_data())
+    
+    def test_update_bucket(self):
+        response = self.client.get('/buckets/')
+        data = response.json()
+        data[0]['id'] = 12
+        data[0]['name'] = "new name"
+        data[0]['created_at'] = "2020-02-05T22:58:25.274000Z"
+        replace = self.client.put('/bucket/1/', data=data[0],  format='json')
+        self.assertEqual(replace.status_code, 200)
+        
+        
         
         
