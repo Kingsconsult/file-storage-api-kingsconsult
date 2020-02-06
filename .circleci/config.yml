@@ -5,6 +5,11 @@ jobs:
     docker:
       - image: circleci/python:3.7
       - image: circleci/mongo:latest
+        environment:
+          environment:
+          MONGODB_USERNAME: "admin"
+          MONGODB_PASSWORD: "admin"
+          
     steps:
       - checkout
       - restore_cache:
