@@ -23,7 +23,8 @@ class DB:
             'default': {
                 'ENGINE': 'djongo',
                 'NAME': 'file-storage',
-                'HOST': 'db:27017',
+                'HOST': 'db',
+
             }
         }
 
