@@ -24,5 +24,7 @@ class DB:
                 'ENGINE': 'djongo',
                 'NAME': 'file-storage',
                 'HOST': 'db',
+
             }
         }
+
