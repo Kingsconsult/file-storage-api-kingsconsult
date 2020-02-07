@@ -1,8 +1,5 @@
-setup:
-  addons:
-    - plan: heroku-mongolab
-
 build:
   docker:
     web: Dockerfile
-
+run:
+  web: bundle exec puma -C config/puma.rb
