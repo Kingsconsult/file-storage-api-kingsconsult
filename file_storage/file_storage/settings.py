@@ -106,7 +106,7 @@ if DEBUG == True:
         'default': {
             'ENGINE': 'djongo',
             'NAME': 'file-storage',
-            'HOST': 'localhost',
+            'HOST': 'db',
             'PORT': 27017
             
         }
