@@ -7,7 +7,7 @@ RUN mkdir /app
 WORKDIR /app
 
 
-COPY . . 
+COPY file_storage . 
 
 RUN pip install -r requirements.txt
 
