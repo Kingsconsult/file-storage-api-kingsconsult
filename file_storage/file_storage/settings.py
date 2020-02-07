@@ -29,7 +29,7 @@ SECRET_KEY = '4cpiysxfv4xs%$2i#9%-%9oczx9pxbkrj!m4mbr6m93kuiy(bl'
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -106,9 +106,8 @@ if DEBUG == True:
         'default': {
             'ENGINE': 'djongo',
             'NAME': 'file-storage',
-            'HOST': 'db:27017',
-            'USERNAME': 'kings',
-            'PASSWORD': 'kings042',
+            'HOST': 'localhost',
+            'PORT': 27017
             
         }
     }
