@@ -7,9 +7,9 @@ build:
 release:
   image: web
   command:
-    - python file_storage/manage.py migrate
+    - python manage.py migrate
 
 run:
-  web: python file_storage/manage.py runserver 0.0.0.0:$PORT
+  web: python manage.py runserver 0.0.0.0:$PORT
 
 
