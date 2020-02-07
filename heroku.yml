@@ -6,3 +6,5 @@ build:
     web: Dockerfile
 run:
   web: gunicorn file_storage.wsgi:application 0.0.0.0:$PORT
+
+  
