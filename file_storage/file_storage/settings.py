@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import dj_database_url
-from db import DB
+# from db import DB
 from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -106,7 +106,7 @@ if DEBUG == True:
         'default': {
             'ENGINE': 'djongo',
             'NAME': 'file-storage',
-            'HOST': 'localhost',
+            'HOST': 'db',
             'PORT': 27017
             
         }
