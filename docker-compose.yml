@@ -7,7 +7,7 @@ services:
       - "27017:27017"
   web:
     build: .
-    command: python ./file_storage/manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
     ports:
