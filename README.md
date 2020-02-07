@@ -9,4 +9,4 @@ Assignment : https://classroom.github.com/a/v5woV476
 Project Specifications : https://docs.google.com/document/d/1kjxxgufpX02kYFPk9rtBYWZcRKKyfd3p-n8mBcjJxME/edit?usp=sharing
 
 
-[![CircleCI](https://circleci.com/gh/kingsconsult/file-storage-api .svg?style=svg)](https://app.circleci.com/github/Kingsconsult/file-storage-api-kingsconsult/pipelines)
+[![kingsconsult](https://circleci.com/gh/kingsconsult/file-storage-api-kingsconsult.svg?style=svg)](https://app.circleci.com/github/Kingsconsult/file-storage-api-kingsconsult/pipelines)
