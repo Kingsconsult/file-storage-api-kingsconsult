@@ -1,0 +1,8 @@
+setup:
+  addons:
+    - plan: heroku-mongolab
+
+build:
+  docker:
+    web: Dockerfile
+
